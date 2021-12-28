@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: |
-          TEXT=${{ toJSON(github.event) }}
-          echo $TEXT
+      - env:
+          GITHUB_EVENT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_EVENT"
