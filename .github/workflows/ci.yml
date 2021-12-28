@@ -13,3 +13,6 @@ jobs:
       - env:
           GITHUB_EVENT: ${{ toJSON(github) }}
         run: echo "$GITHUB_EVENT"
+        
+      - if: ${{ github.event.ref_type == 'branch' && github.event.ref == 'hoge' }}
+        run: echo "This is a hoge branch!!!"
